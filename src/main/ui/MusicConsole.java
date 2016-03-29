@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * Created by DM53848 on 3/25/2016.
+ * added comments for testBranch
  */
 public class MusicConsole implements ConsoleIO {
     Scanner inputScanner = new Scanner(System.in);
