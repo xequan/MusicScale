@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
  
  /*
- * a new comment
+ *  Lets update the comment and cause an error.
  */
  
 public class MusicProgram {
