@@ -10,16 +10,6 @@ import java.util.Scanner;
  * use the MusicDB and MusicConsoleApp to get user input and display the menu option results to the console
  */
  
- /*
-<<<<<<< HEAD
- * a new comment
- * here is a conflicting comment
- *
-=======
- *  Lets update the comment and cause an error.
->>>>>>> 9bcefc87798c28000e9c80e0d07264957e4b3299
- */
- 
 public class MusicProgram {
     private MusicDB userMusicDB;
     private String[] chromaticMusicScale;

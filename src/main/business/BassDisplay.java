@@ -1,7 +1,7 @@
 package main.business;
 
 /*
- * Testing comment
+ *  @author Team A
  */
 
 public class BassDisplay {

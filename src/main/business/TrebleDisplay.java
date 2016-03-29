@@ -1,5 +1,9 @@
 package main.business;
 
+/**
+ *  @author Team A
+ */
+
 public class TrebleDisplay {
 	String noteOne="";
 	String noteTwo="";

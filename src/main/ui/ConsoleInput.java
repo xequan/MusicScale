@@ -1,8 +1,7 @@
 package main.ui;
 
 /**
- * Created by DM53848 on 3/25/2016.
- * conflict change
+ *  @author Team A on 3/25/2016.
  */
 public interface ConsoleInput {
     int getInt(String prompt);

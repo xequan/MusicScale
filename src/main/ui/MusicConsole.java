@@ -3,8 +3,7 @@ package main.ui;
 import java.util.Scanner;
 
 /**
- * Created by DM53848 on 3/25/2016.
- * added comments for testBranch
+ *  @author Team A on 3/25/2016.
  */
 public class MusicConsole implements ConsoleIO {
     Scanner inputScanner = new Scanner(System.in);
