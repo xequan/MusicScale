@@ -1,6 +1,8 @@
 package main.ui;
 
+import main.business.BassDisplay;
 import main.business.MusicProgram;
+import main.business.TrebleDisplay;
 
 import java.util.Scanner;
 
@@ -124,21 +126,32 @@ public class MusicConsoleApp {
         String inputString;
         String choice;
         String[] choices;
+        BassDisplay myBassDisplay = new BassDisplay();
+        TrebleDisplay myTrebleChoice = new TrebleDisplay();
 
        switch (menuOption.toLowerCase()){
            case "bass":
                choice = subMenuChoice(console, chromaticScale);
                choices = choice.split(" ");
-               for (int i = 0; i < choices.length; i++){
-                   System.out.print(choices[i] + " ");
+               if (choices.length == 1) {
+                   myBassDisplay.BassNoteDisplay(choices[0]);
+               } else if (choices.length == 2) {
+                   myBassDisplay.BassNoteDisplay(choices[0], choices[1]);
+               } else if (choices.length == 3){
+                   myBassDisplay.BassNoteDisplay(choices[0], choices[1], choices[2]);
                }
                break;
            case "treble":
                choice = subMenuChoice(console, chromaticScale);
                choices = choice.split(" ");
-               for (int i = 0; i < choices.length; i++){
-                   System.out.print(choices[i] + " ");
+               if (choices.length == 1) {
+                   myTrebleChoice.TrebleNoteDisplay(choices[0]);
+               } else if (choices.length == 2) {
+                   myTrebleChoice.TrebleNoteDisplay(choices[0], choices[1]);
+               } else if (choices.length == 3){
+                   myTrebleChoice.TrebleNoteDisplay(choices[0], choices[1], choices[2]);
                }
+               myTrebleChoice.TrebleNoteDisplay(choices[0]);
                break;
            default:
                break;
