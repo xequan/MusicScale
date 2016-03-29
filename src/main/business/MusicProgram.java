@@ -12,6 +12,8 @@ import java.util.Scanner;
  
  /*
  * a new comment
+ * here is a conflicting comment
+ *
  */
  
 public class MusicProgram {
@@ -106,6 +108,6 @@ public class MusicProgram {
         this.keyIndex = index;
 
     }
-    
+
 
 }
