@@ -11,9 +11,13 @@ import java.util.Scanner;
  */
  
  /*
+<<<<<<< HEAD
  * a new comment
  * here is a conflicting comment
  *
+=======
+ *  Lets update the comment and cause an error.
+>>>>>>> 9bcefc87798c28000e9c80e0d07264957e4b3299
  */
  
 public class MusicProgram {
