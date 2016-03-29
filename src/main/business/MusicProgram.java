@@ -1,9 +1,6 @@
 package main.business;
 
 import main.db.MusicDB;
-import main.ui.MusicConsoleApp;
-
-import java.util.Scanner;
 
 /**
  * @author Team A on 3/16/2016.

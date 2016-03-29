@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  *  @author Team A on 3/25/2016.
+ *  Takes users input and validates the input and returns the input
  */
 public class MusicConsole implements ConsoleIO {
     Scanner inputScanner = new Scanner(System.in);
