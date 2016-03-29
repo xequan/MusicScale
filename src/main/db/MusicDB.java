@@ -17,6 +17,8 @@ public class MusicDB {
     private final String[] majorSeventhChord = {"4","3","4"};
     private final String[] minorSeventhChord = {"3","4","3"};
 
+    //Look Joe added something to the code
+
 
     public String[] getChromaticMusicScale() {
         return chromaticMusicScale;
