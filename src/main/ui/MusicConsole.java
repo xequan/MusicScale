@@ -107,10 +107,10 @@ public class MusicConsole implements ConsoleIO {
                 System.out.println("Error!  Entry must be " + s1 + " or " + s2 + ". Try again.");
             }
         }
-
         return choice;
     }
 
+    @Override
     public String getChoiceArray(String prompt, String[] array){
         String choice = "";
         String errorMessage;
