@@ -1,6 +1,7 @@
 package main.business;
 
 import main.db.MusicDB;
+import main.db.Scales;
 
 /**
  * @author Team A on 3/16/2016.
@@ -49,7 +50,7 @@ public class MusicProgram {
      * @param scale MusicDB targetScale
      * @param key starting note on the chromatic scale
      */
-    public void listScale(String scale, String key) {
+    public void listScale(Scales scale, String key) {
         setKey(key);
         this.musicScale = this.userMusicDB.getScale(scale);
         int musicScaleIndex = 0;

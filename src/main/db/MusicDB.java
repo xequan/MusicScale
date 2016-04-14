@@ -31,29 +31,29 @@ public class MusicDB {
      * @param targetScale passed string that contains which music scale to return
      * @return return music scale array
      */
-    public String[] getScale(String targetScale) {
-        if (targetScale == "major") {
+    public String[] getScale(Scales targetScale) {
+        if (targetScale == Scales.MAJOR) {
             this.musicScaleLength = majorScale.length;
             return majorScale;
-        } else if (targetScale.equalsIgnoreCase("minor")) {
+        } else if (targetScale == Scales.MINOR) {
             this.musicScaleLength = minorScale.length;
             return minorScale;
-        } else if (targetScale.equalsIgnoreCase("dorian")) {
+        } else if (targetScale== Scales.DORIAN) {
             this.musicScaleLength = dorianScale.length;
             return  dorianScale;
-        } else if (targetScale.equalsIgnoreCase("blues")) {
+        } else if (targetScale== Scales.BLUES) {
             this.musicScaleLength = bluesScale.length;
             return  bluesScale;
-        } else if (targetScale.equalsIgnoreCase("majorchord")) {
+        } else if (targetScale== Scales.MAJORCHORD) {
             this.musicScaleLength = majorChord.length;
             return  majorChord;
-        } else if (targetScale.equalsIgnoreCase("minorchord")) {
+        } else if (targetScale== Scales.MINORCHORD) {
             this.musicScaleLength = minorChord.length;
             return  minorChord;
-        }  else if (targetScale.equalsIgnoreCase("majorSeventhChord")) {
+        }  else if (targetScale== Scales.MAJORSEVENTHCHORD) {
             this.musicScaleLength = majorSeventhChord.length;
             return  majorSeventhChord;
-        } else if (targetScale.equalsIgnoreCase("minorSeventhChord")) {
+        } else if (targetScale== Scales.MINORSEVENTHCHORD) {
             this.musicScaleLength = minorSeventhChord.length;
             return  minorSeventhChord;
         } else {

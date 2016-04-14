@@ -7,6 +7,7 @@ import main.business.TrebleDisplay;
 import java.util.Scanner;
 
 import static main.ui.IOFactory.getConsole;
+import main.db.Scales;
 
 /**
  * @author Team A on 3/15/2016.
@@ -78,42 +79,51 @@ public class MusicConsoleApp {
         String inputString = "";
         String[] chromaticScale = userMusicProgram.getChromaticMusicScale();
         String subMenuOption;
+        Scales userScale;
 
         switch (menuOption) {
             case 1:
                 userMusicProgram.listAllChromaticNotes();
                 break;
             case 2:
+            	userScale = Scales.MAJOR;
                 inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
-                userMusicProgram.listScale("major", inputString);
+                userMusicProgram.listScale(userScale, inputString);
                 break;
             case 3:
+            	userScale = Scales.MINOR;
                 inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
-                userMusicProgram.listScale("minor", inputString);
+                userMusicProgram.listScale(userScale, inputString);
                 break;
             case 4:
+            	userScale = Scales.DORIAN;
                 inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
-                userMusicProgram.listScale("blues", inputString);
+                userMusicProgram.listScale(userScale, inputString);
                 break;
             case 5:
+            	userScale = Scales.BLUES;
                 inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
-                userMusicProgram.listScale("dorian", inputString);
+                userMusicProgram.listScale(userScale, inputString);
                 break;
             case 6:
+            	userScale = Scales.MAJORCHORD;
                 inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
-                userMusicProgram.listScale("majorchord", inputString);
+                userMusicProgram.listScale(userScale, inputString);
                 break;
             case 7:
+            	userScale = Scales.MINORCHORD;
                 inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
-                userMusicProgram.listScale("minorchord", inputString);
+                userMusicProgram.listScale(userScale, inputString);
                 break;
             case 8:
+            	userScale = Scales.MAJORSEVENTHCHORD;
                 inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
-                userMusicProgram.listScale("majorSeventhChord", inputString);
+                userMusicProgram.listScale(userScale, inputString);
                 break;
             case 9:
+            	userScale = Scales.MINORSEVENTHCHORD;
                 inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
-                userMusicProgram.listScale("minorseventhchord", inputString);
+                userMusicProgram.listScale(userScale, inputString);
                 break;
             case 10:
                 subMenuOption = subMenu(console);
