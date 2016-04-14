@@ -8,7 +8,8 @@ public class BassDisplay {
 	String noteOne="";
 	String noteTwo="";
 	String noteThree="";
-//test comment 
+	StringBuilder musicString=new StringBuilder();
+
 	public void BassNoteDisplay(String noteOne,String noteTwo,String noteThree){
 		this.noteOne=noteOne;
 		this.noteTwo=noteTwo;
@@ -116,8 +117,8 @@ public class BassDisplay {
 		System.out.println("Bass");
 		for (int i=0;i<clefNew.length;i++){
 			for(int j=0;j<clefNew.length;j++){
-				System.out.print(clefNew[i][j]);
-			}System.out.println();
+				musicString.append(clefNew[i][j]);
+			}musicString.append("\n");
 		}
 	}
 	public void BassNoteDisplay(String noteOne,String noteTwo){
@@ -198,8 +199,8 @@ public class BassDisplay {
 		System.out.println("Bass");
 		for (int i=0;i<clefNew.length;i++){
 			for(int j=0;j<clefNew.length;j++){
-				System.out.print(clefNew[i][j]);
-			}System.out.println();
+				musicString.append(clefNew[i][j]);
+			}musicString.append("\n");
 		}
 	}
 	public void BassNoteDisplay(String noteOne){
@@ -251,8 +252,8 @@ public class BassDisplay {
 		System.out.println("Bass");
 		for (int i=0;i<clefNew.length;i++){
 			for(int j=0;j<clefNew.length;j++){
-				System.out.print(clefNew[i][j]);
-			}System.out.println();
+				musicString.append(clefNew[i][j]);
+			}musicString.append("\n");
 		}
 	}
 }
