@@ -1,9 +1,10 @@
-package main.ui;
+package main.ui.util;
 
 /**
- *  @author Team A on 3/25/2016.
+ *  @author Team A on 3/31/2016.
+ *  Interface to validate user input
  */
-public interface ConsoleInput {
+public interface Validatable {
     int getInt(String prompt);
 
     int getIntWithinRange(String prompt, int min, int max);

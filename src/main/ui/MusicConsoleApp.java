@@ -6,34 +6,37 @@ import main.business.TrebleDisplay;
 
 import java.util.Scanner;
 
-import static main.ui.IOFactory.getConsole;
+
 import main.db.Scales;
+import main.ui.util.Displayable;
+import main.ui.util.IOFactory;
+import main.ui.util.Validatable;
 
 /**
  * @author Team A on 3/15/2016.
  * This applicaiton will list music notes for different scales and chords
  */
 public class MusicConsoleApp {
+    static Displayable output = IOFactory.getDisplayable();
+    static Validatable input = IOFactory.getValidatable();
 
     public static void main(String[] args) {
-        Scanner inputScanner = new Scanner(System.in);
+
         String continueString = null;
         MusicProgram userMusicProgram = new MusicProgram();
         int menuOption = 0;
 
-        MusicConsole console = getConsole();
-        console.print("Welcome to the Music Database!");
+
+        output.display("Welcome to the Music Database!");
 
 
         do {
-            menuOption = mainMenu(console);
-            runMainMenuOption(menuOption, userMusicProgram, console);
-            System.out.println("Continue? (y/n): ");
-            continueString = inputScanner.next();
+            menuOption = mainMenu();
+            runMainMenuOption(menuOption, userMusicProgram);
+            continueString = input.getChoiceString("Continue? (y/n)", "y", "n");
         } while (continueString.equalsIgnoreCase("y"));
 
-        inputScanner.close();
-        System.out.println("bye");
+        output.display("bye");
 
 
     }
@@ -42,7 +45,7 @@ public class MusicConsoleApp {
      * List all menu options and return the user selected menu option number
      * @return user selected menu option
      */
-    public static int mainMenu(MusicConsole console) {
+    public static int mainMenu() {
         String inputString = "";
         StringBuilder menuString = new StringBuilder();
         int menuNumber = 0;
@@ -59,14 +62,14 @@ public class MusicConsoleApp {
         menuString.append("9.  List 4 notes of a minor 7th chord: \n");
         menuString.append("10. Display a note in bass or treble: ");
 
-        menuNumber = console.getIntWithinRange(menuString.toString(), 1, 10);
+        menuNumber = input.getIntWithinRange(menuString.toString(), 1, 10);
 
         return menuNumber;
     }
 
-    public static String subMenu(MusicConsole console){
+    public static String subMenu(){
         String choice = "";
-        choice = console.getChoiceString("Choose one of the following: (bass/treble)", "bass", "treble");
+        choice = input.getChoiceString("Choose one of the following: (bass/treble)", "bass", "treble");
         return choice;
     }
 
@@ -75,7 +78,7 @@ public class MusicConsoleApp {
      * @param menuOption user selected menu option
      * @param userMusicProgram MusicProgram class
      */
-    public static void runMainMenuOption(int menuOption, MusicProgram userMusicProgram, MusicConsole console) {
+    public static void runMainMenuOption(int menuOption, MusicProgram userMusicProgram) {
         String inputString = "";
         String[] chromaticScale = userMusicProgram.getChromaticMusicScale();
         String subMenuOption;
@@ -87,52 +90,52 @@ public class MusicConsoleApp {
                 break;
             case 2:
             	userScale = Scales.MAJOR;
-                inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
+                inputString = input.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
                 userMusicProgram.listScale(userScale, inputString);
                 break;
             case 3:
             	userScale = Scales.MINOR;
-                inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
+                inputString = input.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
                 userMusicProgram.listScale(userScale, inputString);
                 break;
             case 4:
             	userScale = Scales.DORIAN;
-                inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
+                inputString = input.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
                 userMusicProgram.listScale(userScale, inputString);
                 break;
             case 5:
             	userScale = Scales.BLUES;
-                inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
+                inputString = input.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
                 userMusicProgram.listScale(userScale, inputString);
                 break;
             case 6:
             	userScale = Scales.MAJORCHORD;
-                inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
+                inputString = input.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
                 userMusicProgram.listScale(userScale, inputString);
                 break;
             case 7:
             	userScale = Scales.MINORCHORD;
-                inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
+                inputString = input.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
                 userMusicProgram.listScale(userScale, inputString);
                 break;
             case 8:
             	userScale = Scales.MAJORSEVENTHCHORD;
-                inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
+                inputString = input.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
                 userMusicProgram.listScale(userScale, inputString);
                 break;
             case 9:
             	userScale = Scales.MINORSEVENTHCHORD;
-                inputString = console.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
+                inputString = input.getChoiceArray("Enter a note on the chromatic scale", chromaticScale);
                 userMusicProgram.listScale(userScale, inputString);
                 break;
             case 10:
-                subMenuOption = subMenu(console);
-                runSubMenuOption(subMenuOption, console, chromaticScale);
+                subMenuOption = subMenu();
+                runSubMenuOption(subMenuOption, chromaticScale);
                 break;
         }
     }
 
-    public static void runSubMenuOption(String menuOption, MusicConsole console, String[] chromaticScale){
+    public static void runSubMenuOption(String menuOption, String[] chromaticScale){
         String inputString;
         String choice;
         String[] choices;
@@ -141,7 +144,7 @@ public class MusicConsoleApp {
 
        switch (menuOption.toLowerCase()){
            case "bass":
-               choice = subMenuChoice(console, chromaticScale);
+               choice = subMenuChoice(chromaticScale);
                choices = choice.split(" ");
                if (choices.length == 1) {
                    myBassDisplay.BassNoteDisplay(choices[0]);
@@ -152,7 +155,7 @@ public class MusicConsoleApp {
                }
                break;
            case "treble":
-               choice = subMenuChoice(console, chromaticScale);
+               choice = subMenuChoice(chromaticScale);
                choices = choice.split(" ");
                if (choices.length == 1) {
                    myTrebleChoice.TrebleNoteDisplay(choices[0]);
@@ -169,20 +172,20 @@ public class MusicConsoleApp {
        }
     }
 
-    public static String subMenuChoice(MusicConsole console, String[] chromaticScale) {
+    public static String subMenuChoice(String[] chromaticScale) {
         String inputString;
         String returnString = "";
         String choice;
         int count = 0;
 
-        System.out.println("Enter up to 3 notes.");
+        output.display("Enter up to 3 notes.");
         do {
-            inputString = console.getChoiceArray("Enter a note on the chromatic scale.", chromaticScale) + " ";
+            inputString = input.getChoiceArray("Enter a note on the chromatic scale.", chromaticScale) + " ";
             returnString += inputString;
             if (count > 1){
                 break;
             }
-            choice = console.getChoiceString("Enter another note? (y/n)", "y", "n");
+            choice = input.getChoiceString("Enter another note? (y/n)", "y", "n");
             count++;
         } while (choice.equalsIgnoreCase("y"));
         return returnString;

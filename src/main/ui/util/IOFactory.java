@@ -1,0 +1,27 @@
+package main.ui.util;
+
+import main.ui.console.ConsoleInput;
+import main.ui.console.ConsoleOutput;
+
+/**
+ *  @author Team A on 3/31/2016.
+ *  Returns Displayable, Validatable or Interactable
+ */
+public class IOFactory {
+    public static Displayable getDisplayable() {
+        Displayable display = new ConsoleOutput();
+    //    Displayable display = new GUIDisplay();
+        return display;
+    }
+
+    public static Validatable getValidatable () {
+        Validatable validate = new Validator();
+        return validate;
+    }
+
+    public static Interactable getInteractible() {
+        Interactable interactor = new ConsoleInput();
+        return interactor;
+    }
+
+}

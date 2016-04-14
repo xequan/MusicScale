@@ -1,13 +1,12 @@
-package main.ui;
-
-import java.util.Scanner;
+package main.ui.util;
 
 /**
  *  @author Team A on 3/25/2016.
  *  Takes users input and validates the input and returns the input
  */
-public class MusicConsole implements ConsoleIO {
-    Scanner inputScanner = new Scanner(System.in);
+public class Validator implements Validatable {
+    Interactable input = IOFactory.getInteractible();
+    Displayable output = IOFactory.getDisplayable();
 
     @Override
     public int getInt(String prompt) {
@@ -15,11 +14,11 @@ public class MusicConsole implements ConsoleIO {
 
         while (true) {
             try {
-                System.out.println(prompt);
-                returnInt = Integer.parseInt(inputScanner.nextLine());
+                output.display(prompt + "\n");
+                returnInt = Integer.parseInt(input.requestString());
                 break;
             } catch (NumberFormatException e) {
-                System.out.println("Error! Invalid integer. Try again");
+                output.display("Error! Invalid integer. Try again\n");
             }
         }
 
@@ -34,9 +33,9 @@ public class MusicConsole implements ConsoleIO {
             returnInt = getInt(prompt);
 
             if (returnInt < min) {
-                System.out.println("Error! Number must be greater than " + min);
+                output.display("Error! Number must be greater than " + min + "\n");
             } else if (returnInt > max) {
-                System.out.println("Error! Number must be less than " + max);
+                output.display("Error! Number must be less than " + max + "\n");
             } else {
                 break;
             }
@@ -51,11 +50,11 @@ public class MusicConsole implements ConsoleIO {
 
         while (true) {
             try {
-                System.out.println(prompt);
-                returnDouble = Double.parseDouble(inputScanner.nextLine());
+                output.display(prompt + "\n");
+                returnDouble = Double.parseDouble(input.requestString());
                 break;
             } catch (NumberFormatException e) {
-                System.out.println("Error! Invalid double. Try again");
+                output.display("Error! Invalid double. Try again\n");
             }
         }
         return returnDouble;
@@ -69,9 +68,9 @@ public class MusicConsole implements ConsoleIO {
             returnDouble = getDouble(prompt);
 
             if (returnDouble < min) {
-                System.out.println("Error! Number must be greater than " + min);
+                output.display("Error! Number must be greater than " + min + "\n");
             } else if (returnDouble > max) {
-                System.out.println("Error! Number must be less than " + max);
+                output.display("Error! Number must be less than " + max + "\n");
             } else {
                 break;
             }
@@ -83,11 +82,11 @@ public class MusicConsole implements ConsoleIO {
     public String getRequiredString(String prompt) {
         String inputString;
         while (true) {
-            System.out.println(prompt);
-            inputString = inputScanner.nextLine();
+            output.display(prompt + "\n");
+            inputString = input.requestString();
 
             if (inputString.equals("")) {
-                System.out.println("Error!  This entry is required. Try again");
+                output.display("Error!  This entry is required. Try again\n");
             } else {
                 break;
             }
@@ -104,7 +103,7 @@ public class MusicConsole implements ConsoleIO {
             if (choice.equalsIgnoreCase(s1) || choice.equalsIgnoreCase(s2)) {
                 break;
             } else {
-                System.out.println("Error!  Entry must be " + s1 + " or " + s2 + ". Try again.");
+                output.display("Error!  Entry must be " + s1 + " or " + s2 + ". Try again.\n");
             }
         }
         return choice;
@@ -127,28 +126,10 @@ public class MusicConsole implements ConsoleIO {
                 errorMessage += (array[counter] + " ");
             }
             if (flag == true) {
-                System.out.println(errorMessage.toString());
+                output.display(errorMessage.toString() + "\n");
             }
         }
         return choice;
     }
 
-    @Override
-    public void print(String s) {
-        System.out.print(s);
-    }
-
-    @Override
-    public void println(String s) {
-        System.out.println(s);
-    }
-
-    @Override
-    public void println() {
-        System.out.println();
-    }
-
-    public void close() {
-        inputScanner.close();
-    }
 }
