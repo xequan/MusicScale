@@ -8,7 +8,7 @@ public class BassDisplay {
 	String noteOne="";
 	String noteTwo="";
 	String noteThree="";
-
+//test comment 
 	public void BassNoteDisplay(String noteOne,String noteTwo,String noteThree){
 		this.noteOne=noteOne;
 		this.noteTwo=noteTwo;
